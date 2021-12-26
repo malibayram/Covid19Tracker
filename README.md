@@ -1,4 +1,4 @@
-# Code review aşamasında geliştirmiş olduğunuz projenin S.O.L.I.D prensipleri, Design Pattern ve Git repo yönetiminde beklediğimiz standartlarda olmadığını gördük. Bu bizim yaklaşımımıza göre farklı çalışmayı tercih ettiğimiz için ne yazıkki olumlu dönüş yapamıyoruz.
+![Yazılım Geliştirme Prensipleri Piramidi](./screenshots/yazilim_gelistirme_prensipleri_piramidi.jpeg)
 
 # Covid19Tracker
 
@@ -26,7 +26,7 @@ Sample Flutter Project for the Recruitment Process.
 3. **Scalability**:
    1. Your software should easily accommodate possible future requirement changes.
    2. If you are asked to change to XML-based API instead of JSON
-   3. If you are asked to use a different persistent store (Core Data, SQLite, iCloud, FMDB) 
+   3. If you are asked to use a different persistent store (Core Data, SQLite, iCloud, FMDB)
    4. If you are asked to use different domains for listing or images, different URL configurations for listing or image.
 4. **Testability**: Tests are great, but testability is more important.
    1. Please Unit Test all non-UI classes. Mocking, Stubbing, TDD if possible.
