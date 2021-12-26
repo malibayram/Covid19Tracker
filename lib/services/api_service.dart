@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import './api.dart';
-import './cache_service.dart';
 import '../models/statistics.dart';
+import '../solid/a_cache_service.dart';
 
 class APIService {
   const APIService({required this.api, required this.cacheService});
   final API api;
-  final CacheService cacheService;
+  final ACacheService cacheService;
 
   Future<void> getCountries() async {
     final uri = api.endpointUri(Endpoint.countries);
@@ -18,7 +18,7 @@ class APIService {
       uri,
       headers: {
         'x-rapidapi-host': api.host,
-        'x-rapidapi-key': api.apiKey,
+        'x-rapidapi-key': api.apiKey!,
       },
     );
 
@@ -44,7 +44,7 @@ class APIService {
       uri.replace(query: 'country=$country'),
       headers: {
         'x-rapidapi-host': api.host,
-        'x-rapidapi-key': api.apiKey,
+        'x-rapidapi-key': api.apiKey!,
       },
     );
 

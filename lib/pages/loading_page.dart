@@ -1,3 +1,4 @@
+import 'package:covid_19_tracker/solid/hive_cache_service.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_listener/hive_listener.dart';
@@ -22,7 +23,8 @@ class LoadingPage extends StatelessWidget {
         final List countryList = box.get('countryList', defaultValue: []);
 
         if (countryList.isEmpty) {
-          APIService(api: API(), cacheService: CacheService()).getCountries();
+          APIService(api: API(), cacheService: HiveCacheService())
+              .getCountries();
 
           return const Center(
             child: CircularProgressIndicator(),

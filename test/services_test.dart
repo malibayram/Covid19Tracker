@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:covid_19_tracker/services/api.dart';
 import 'package:covid_19_tracker/services/api_service.dart';
 import 'package:covid_19_tracker/services/cache_service.dart';
+import 'package:covid_19_tracker/solid/hive_cache_service.dart';
 import 'package:covid_19_tracker/utilities/strings.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
@@ -13,11 +14,11 @@ void initHive() {
 }
 
 void main() async {
-  CacheService cacheService;
+  HiveCacheService cacheService;
   APIService apiService;
 
   String? country;
-  List? countryList;
+  List<String>? countryList;
 
   final now = DateTime.now();
   final dayString = "${now.day}-${now.month}-${now.year}";
@@ -38,7 +39,7 @@ void main() async {
       expect(countryList, []);
     });
 
-    cacheService = CacheService();
+    cacheService = HiveCacheService();
     test("test null statistics from cacheService", () async {
       final statistics = await cacheService.getStatistics(
           country: country!, dayString: dayString);
@@ -52,7 +53,7 @@ void main() async {
         () async {
       await apiService.getCountries();
 
-      final countryList = cacheService.getCountryList();
+      final countryList = await cacheService.getCountryList();
 
       countryList.shuffle();
 
@@ -65,7 +66,7 @@ void main() async {
     test("test getCountryList method from api service", () async {
       await apiService.getCountries();
 
-      final countryList = cacheService.getCountryList();
+      final countryList = await cacheService.getCountryList();
 
       expect(countryList.isNotEmpty, true);
     });

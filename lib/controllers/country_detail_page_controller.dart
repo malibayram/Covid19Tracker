@@ -1,3 +1,5 @@
+import 'package:covid_19_tracker/solid/hive_cache_service.dart';
+
 import '../models/statistics.dart';
 import '../services/api.dart';
 import '../services/api_service.dart';
@@ -8,7 +10,7 @@ class CountryDetailPageController {
   Statistics? statistics;
 
   final _cacheServise = CacheService();
-  final _apiServise = APIService(api: API(), cacheService: CacheService());
+  final _apiServise = APIService(api: API(), cacheService: HiveCacheService());
 
   CountryDetailPageController({required this.country});
 
