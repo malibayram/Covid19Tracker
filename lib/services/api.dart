@@ -1,3 +1,5 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 enum Endpoint {
   countries,
   statistics,
@@ -5,7 +7,7 @@ enum Endpoint {
 
 class API {
   final host = "covid-193.p.rapidapi.com";
-  final apiKey = "7514c59p16793ejsn6aa0e35fe867";
+  final apiKey = dotenv.env['RAPID_API_KEY'];
 
   Uri endpointUri(Endpoint endpoint) => Uri(
         scheme: 'https',

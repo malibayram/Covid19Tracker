@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import './pages/loading_page.dart';
 import './utilities/constant.dart';
@@ -12,6 +13,8 @@ void main() async {
 
   await Hive.openBox(Strings.settings);
   await Hive.openBox(Strings.statistics);
+
+  await dotenv.load(fileName: ".env");
 
   runApp(const MyApp());
 }

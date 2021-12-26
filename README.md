@@ -63,7 +63,7 @@ Sample Flutter Project for the Recruitment Process.
 
 **API Documentation**: https://api-sports.io/documentation/covid-19/v1
 
-**API Key**: `7514c59p16793ejsn6aa0e35fe867`
+**API Key**: `API_KEY`
 
 **Base URL**: https://covid-193.p.rapidapi.com/
 
